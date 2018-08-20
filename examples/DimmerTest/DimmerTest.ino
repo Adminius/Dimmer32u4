@@ -9,12 +9,6 @@ void setup() {
   //initialize channel1 and channel2
   channel1.init();
   channel2.init();
-  
-  //turn channel1 off
-  channel1.setValue(0);
-  //setting channel2 to max value turns channel2 off, because it inverted 
-  channel2.setValue(channel2.getMaxValue());
-  
 }
 
 void loop() {
@@ -31,12 +25,13 @@ void loop() {
     }
     delay(500);
     //fade in
-    for (int c2 = channel2.getMaxValue(); c2 >= 0;c2-=20){
+    for (int c2 = 0; c2 <= channel2.getMaxValue();c2+=20){
         channel2.setValue(c2);
         delay(20);
     }
+    delay(500);
     //fade out
-    for (int c2 = 0; c2 <= channel2.getMaxValue();c2+=20){
+    for (int c2 = channel2.getMaxValue(); c2 >= 0;c2-=20){
         channel2.setValue(c2);
         delay(20);
     }
