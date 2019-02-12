@@ -85,10 +85,10 @@ void Dimmer32u4::init()
     }
     if (F_CPU <= 8000000L) {
         _resolution = 12;
-        _maxValue = 4000; //12bit
+        _maxValue = 3999; //12bit
     }else{
         _resolution = 10;
-        _maxValue = 1000; //10bit
+        _maxValue = 999; //10bit
     }
     if (timer1){
         ICR1 = _maxValue;
